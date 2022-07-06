@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/Graicc/MarkdownDiscordConverter:latest
+          tags: ghcr.io/graicc/markdowndiscordconverter:latest
