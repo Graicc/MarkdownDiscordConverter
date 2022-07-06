@@ -1,0 +1,23 @@
+name: 'Markdown Discord Converter'
+description: 'Converts markdown files to a discord compatable format.'
+branding:
+  icon: file-plus
+  color: green
+inputs:
+  file:
+    description:
+      'The path of the markdown file to convert.'
+    required: true
+  output:
+    description:
+      'The path to place the generated file'
+    required: true
+outputs:
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - '-f'
+  - ${{ inputs.file }}
+  - '-o'
+  - ${{ inputs.output }}
