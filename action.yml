@@ -12,7 +12,6 @@ inputs:
     description:
       'The path to place the generated file'
     required: true
-outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
