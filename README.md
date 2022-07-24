@@ -29,4 +29,5 @@ The program applies the following transformations:
 - `## Heading` to `**Heading**`
 - `[Example](example.com)` to `Example (<example.com>)`
 - `<!-- DISC-ONLY Some text -->` to `Some text`
+- `<MARK-ONLY>Some text</MARK-ONLY> other text` to `other text`
 - Removes `<img>` tags

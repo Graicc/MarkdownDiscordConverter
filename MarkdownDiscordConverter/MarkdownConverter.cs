@@ -43,6 +43,12 @@ internal class MarkdownConverter
 			Regex regex = new Regex(@"<!--\s*DISC-ONLY\s*(.*?)\s*-->");
 			return regex.Replace(s, "$1");
 		},
+		// Markdown only blocks
+		(s) =>
+		{
+			Regex regex = new Regex(@"<MARK-ONLY>(.*?)</MARK-ONLY>\s*");
+			return regex.Replace(s, "");
+		},
 	};
 
 	public string Convert(string markdown)
