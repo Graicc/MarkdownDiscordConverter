@@ -7,6 +7,18 @@ internal class MarkdownConverter
 {
 	public List<Func<string, string>> Converters { get; set; } = new()
 	{
+		// Discord only blocks
+		(s) =>
+		{
+			Regex regex = new Regex(@"<!--\s*DISC-ONLY\s*(.*?)\s*-->");
+			return regex.Replace(s, "$1");
+		},
+		// Markdown only blocks
+		(s) =>
+		{
+			Regex regex = new Regex(@"<MARK-ONLY>(.*?)</MARK-ONLY>\s*");
+			return regex.Replace(s, "");
+		},
 		// H1 -> Bold + Underline
 		(s) =>
 		{
@@ -36,18 +48,6 @@ internal class MarkdownConverter
 		{
 			Regex regex = new Regex(@"\[(.*?)\]\((.*?)\)");
 			return regex.Replace(s, "$1 (<$2>)");
-		},
-		// Discord only blocks
-		(s) =>
-		{
-			Regex regex = new Regex(@"<!--\s*DISC-ONLY\s*(.*?)\s*-->");
-			return regex.Replace(s, "$1");
-		},
-		// Markdown only blocks
-		(s) =>
-		{
-			Regex regex = new Regex(@"<MARK-ONLY>(.*?)</MARK-ONLY>\s*");
-			return regex.Replace(s, "");
 		},
 	};
 
